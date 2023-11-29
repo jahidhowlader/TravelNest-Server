@@ -1,5 +1,5 @@
 import express from "express";
-import { createBooking } from "../controllers/booking.js";
+import { createBooking, getBookingList } from "../controllers/booking.js";
 // import { } from "../utils/verifyToken.js";
 
 const router = express.Router();
@@ -8,9 +8,9 @@ const router = express.Router();
 router.post("/booking", createBooking);
 
 // GET
-router.get("/booking/:id", );
+router.get("/booking/:email", getBookingList);
 
 //GET ALL
-router.get("/bookings", );
+// router.get("/bookings", );
 
 export default router;

@@ -10,6 +10,21 @@ const BookingSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        title: {
+            type: String,
+            required: true
+        },
+        additionalPrice: {
+            type: { airportPickup: String, laundry: String },
+        },
+        price: {
+            type: String,
+            required: true
+        },
+        guests: {
+            type: { adult: String, children: String },
+            required: true
+        },
         username: {
             type: String,
             required: true
@@ -38,7 +53,7 @@ const BookingSchema = new mongoose.Schema(
             type: [Date],
             required: true
         },
-        
+
     },
     { timestamps: true }
 );
