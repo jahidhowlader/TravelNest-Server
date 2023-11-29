@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 import authRoute from './api/routes/auth.js'
 import usersRoute from './api/routes/users.js'
 import roomsRoute from './api/routes/rooms.js'
+import bookingsRoute from './api/routes/bookings.js'
 
 const app = express()
 dotenv.config()
@@ -35,6 +36,7 @@ app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/users", usersRoute)
 app.use("/api", roomsRoute)
+app.use("/api", bookingsRoute)
 
 // Handle Error
 app.use((err, req, res, next) => {

@@ -4,65 +4,61 @@ const RoomSchema = new mongoose.Schema(
     {
         roomNumbers: {
             type: String,
-            required: true,
+            required: true
         },
         unavailableDates: {
             type: [Date]
         },
         title: {
             type: String,
-            required: true,
+            required: true
         },
         size: {
             type: String,
-            required: true,
+            required: true
         },
         type: {
             type: String,
-            required: true,
+            required: true
         },
         adult_capacity: {
             type: String,
-            required: true,
+            required: true
         },
         children_capacity: {
             type: String,
-            required: true,
+            required: true
         },
         beds: {
             type: String,
-            required: true,
+            required: true
         },
         bathroom: {
             type: String,
-            required: true,
+            required: true
         },
         photos: {
-            type: [String],
+            type: [String]
         },
         description: {
             type: String,
-            required: true,
+            required: true
         },
         room_facilities: {
-            type: [String],
+            type: [String]
         },
         price: {
             type: Number,
-            required: true,
-        },
-        maxPeople: {
-            type: Number,
-            required: true,
+            required: true
         },
         rating: {
             type: Number,
             min: 0,
-            max: 5,
+            max: 5
         },
         featured: {
             type: Boolean,
-            default: false,
+            default: false
         },
     },
     { timestamps: true }
