@@ -5,6 +5,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import authRoute from './api/routes/auth.js'
 import usersRoute from './api/routes/users.js'
+import roomsRoute from './api/routes/rooms.js'
 
 const app = express()
 dotenv.config()
@@ -33,6 +34,7 @@ app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/users", usersRoute)
+app.use("/api", roomsRoute)
 
 // Handle Error
 app.use((err, req, res, next) => {
