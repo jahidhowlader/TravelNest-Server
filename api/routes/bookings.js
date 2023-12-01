@@ -1,5 +1,5 @@
 import express from "express";
-import { createBooking, getBookingList } from "../controllers/booking.js";
+import { createBooking, getAllBooking, getBookingList } from "../controllers/booking.js";
 // import { } from "../utils/verifyToken.js";
 
 const router = express.Router();
@@ -11,6 +11,6 @@ router.post("/booking", createBooking);
 router.get("/booking/:email", getBookingList);
 
 //GET ALL
-// router.get("/bookings", );
+router.get("/bookings", getAllBooking);
 
 export default router;

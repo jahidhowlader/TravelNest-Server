@@ -21,8 +21,20 @@ export const getBookingList = async (req, res, next) => {
 
     try {
 
-        const user = await Booking.find({ email: req.params.email })
-        res.status(200).json(user);
+        const bookingList = await Booking.find({ email: req.params.email })
+        res.status(200).json(bookingList);
+
+    } catch (err) {
+        next(err);
+    }
+}
+// GET
+export const getAllBooking = async (req, res, next) => {
+
+    try {
+
+        const bookings = await Booking.find()
+        res.status(200).json(bookings);
 
     } catch (err) {
         next(err);
