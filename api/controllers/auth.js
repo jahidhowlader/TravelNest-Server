@@ -25,8 +25,8 @@ export const register = async (req, res, next) => {
     }
 
     // CHECK VALIDATION FOR PASSWORD
-    if (password.length < 6) {
-      return next(createError(406, "Password should be greater then 6 characters!"));
+    if (password.length < 8) {
+      return next(createError(406, "Password should be greater then 8 characters!"));
     }
 
     // FIND EMAIL FROM DATABASE

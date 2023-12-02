@@ -33,9 +33,31 @@ export const getRoom = async (req, res, next) => {
 // GET ALL ROOM IN HOTEL
 export const getRooms = async (req, res, next) => {
 
+    const query = req.query
+
+    console.log(query);
+
     try {
-        const rooms = await Room.find();
-        res.status(200).json(rooms);
+
+        if (query.room === 'all') {
+
+            const rooms = await Room.find();
+            res.status(200).json(rooms);
+
+        } else {
+
+            const rooms = await Room.find({
+                $or: [
+                    { beds: { $lte: +req.query.room } },
+                    { adult_capacity: { $lte: +req.query.adult } },
+                    { children_capacity: { $lte: +req.query.children } }
+                ]
+            });
+
+            // console.log(roo);
+
+            res.status(200).json(rooms);
+        }
 
     } catch (err) {
         next(err);

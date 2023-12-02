@@ -22,19 +22,19 @@ const RoomSchema = new mongoose.Schema(
             required: true
         },
         adult_capacity: {
-            type: String,
+            type: Number,
             required: true
         },
         children_capacity: {
-            type: String,
+            type: Number,
             required: true
         },
         beds: {
-            type: String,
+            type: Number,
             required: true
         },
         bathroom: {
-            type: String,
+            type: Number,
             required: true
         },
         photos: {
