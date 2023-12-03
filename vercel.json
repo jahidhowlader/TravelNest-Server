@@ -9,11 +9,27 @@
     "routes": [
         {
             "src": "/api/.*",
-            "dest": "/api/index.js"
+            "dest": "/api/index.js",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+            ]
         },
         {
             "src": "/.*",
-            "dest": "/"
+            "dest": "/",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+            ]
         }
     ]
 }
