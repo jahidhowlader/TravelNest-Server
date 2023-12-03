@@ -5,8 +5,12 @@
             "handle": "filesystem"
         },
         {
-            "src": "/api/.*\\.(js|ts)",
-            "dest": "/api/$1"
+            "src": "/api/bookings",
+            "dest": "/api/route/users.js"
+        },
+        {
+            "src": "/api/rooms\\.js",
+            "dest": "/api/rooms.js"
         },
         {
             "src": "/(.*)",
