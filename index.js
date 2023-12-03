@@ -7,9 +7,11 @@ import authRoute from './api/routes/auth.js'
 import usersRoute from './api/routes/users.js'
 import roomsRoute from './api/routes/rooms.js'
 import bookingsRoute from './api/routes/bookings.js'
+dotenv.config()
+
+const port = process.env.PORT || 3000
 
 const app = express()
-dotenv.config()
 
 const connect = async () => {
 
@@ -52,7 +54,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     connect()
     console.log("Connect to backend");
 })
