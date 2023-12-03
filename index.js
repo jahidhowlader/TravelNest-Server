@@ -26,22 +26,18 @@ const connect = async () => {
     }
 }
 
-app.get('/', (req, res) => {
-
-    res.send("Hello World")
-})
-
 // middleware
-app.use(cors({
-    origin: 'https://travelnest-client.web.app/',
-    credentials: true
-}))
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/users", usersRoute)
 app.use("/api", roomsRoute)
 app.use("/api", bookingsRoute)
+app.get('/', (req, res) => {
+
+    res.send("Hello World")
+})
 
 // Handle Error
 app.use((err, req, res, next) => {
