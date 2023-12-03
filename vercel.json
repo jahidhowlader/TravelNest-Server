@@ -5,8 +5,8 @@
             "handle": "filesystem"
         },
         {
-            "src": "/api/.*",
-            "dest": "/api/index.js"
+            "src": "/api/.*\\.(js|ts)",
+            "dest": "/api/$1"
         },
         {
             "src": "/(.*)",
