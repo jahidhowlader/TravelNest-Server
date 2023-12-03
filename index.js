@@ -30,7 +30,10 @@ app.get('/', (req, res) => {
 })
 
 // middleware
-app.use(cors())
+app.use(cors({
+    origin: 'https://travelnest-client.web.app/',
+    credentials: true
+}))
 app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoute)
