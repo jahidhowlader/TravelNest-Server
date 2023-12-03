@@ -35,8 +35,6 @@ export const getRooms = async (req, res, next) => {
 
     const query = req.query
 
-    console.log(query);
-
     try {
 
         if (query.room === 'all') {
