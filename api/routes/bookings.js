@@ -1,6 +1,6 @@
 import express from "express";
-import { createBooking, getAllBooking, getBookingList } from "../controllers/booking.js";
-// import { } from "../utils/verifyToken.js";
+import { createBooking, getAllBooking, getBookingList, getSingleBookingList } from "../controllers/booking.js";
+import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
@@ -8,9 +8,12 @@ const router = express.Router();
 router.post("/booking", createBooking);
 
 // GET
-router.get("/booking/:email", getBookingList);
+router.get("/booking/:id", getSingleBookingList);
+
+// GET
+router.get("/bookingList/:email", getBookingList);
 
 //GET ALL
-router.get("/bookings", getAllBooking);
+router.get("/bookings", verifyAdmin, getAllBooking);
 
 export default router;

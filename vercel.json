@@ -1,20 +1,35 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
     "routes": [
         {
-            "handle": "filesystem"
+            "src": "/api/.*",
+            "dest": "/api",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+            ]
         },
         {
-            "src": "/api/bookings",
-            "dest": "/api/route/users.js"
-        },
-        {
-            "src": "/api/rooms\\.js",
-            "dest": "/api/rooms.js"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.js"
+            "src": "/.*",
+            "dest": "/",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+            ]
         }
     ]
 }

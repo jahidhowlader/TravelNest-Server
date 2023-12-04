@@ -78,12 +78,11 @@ export const login = async (req, res, next) => {
     if (!isPasswordCorrect) {
 
       return next(createError(400, "Wrong credential!"));
-      // res.status(400).send("Wrong credential!")
     }
 
     // ASSIGN TOKEN WITH JWT
     const token = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
+      { id: user._id, email:user.email, isAdmin: user.isAdmin },
       process.env.JWT
     );
 

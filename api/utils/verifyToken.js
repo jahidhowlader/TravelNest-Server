@@ -4,6 +4,7 @@ import { createError } from "./error.js";
 export const verifyToken = (req, res, next) => {
 
   const token = req.cookies.access_token;
+  console.log('token', token);
 
   if (!token) {
     return next(createError(401, "You are not authenticated!"));
@@ -12,7 +13,9 @@ export const verifyToken = (req, res, next) => {
   jwt.verify(token, process.env.JWT, (err, user) => {
 
     if (err) return next(createError(403, "Token is not valid!"));
-    
+
+    console.log(16, user);
+
     req.user = user;
     next();
   });
@@ -20,9 +23,12 @@ export const verifyToken = (req, res, next) => {
 
 export const verifyUser = (req, res, next) => {
 
-  verifyToken(req, res, () => {
+  // console.log(25, req);
 
-    if (req.user.id === req.params.id || req.user.isAdmin) {
+  verifyToken(req, res, () => {
+    console.log(28, req.user);
+
+    if (req.user.email === req.params.email || req.user.isAdmin) {
       next();
 
     } else {

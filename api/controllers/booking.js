@@ -16,8 +16,24 @@ export const createBooking = async (req, res, next) => {
     }
 };
 
-// GET
+
+
+// GET SINGLE BOOKING LIST AS A USER
+export const getSingleBookingList = async (req, res, next) => {
+
+    try {
+
+        const bookingList = await Booking.findById(req.params.id)
+        res.status(200).json(bookingList);
+
+    } catch (err) {
+        next(err);
+    }
+}
+
+// GET ALL BOOKING LIST AS A USER
 export const getBookingList = async (req, res, next) => {
+
 
     try {
 
@@ -28,7 +44,8 @@ export const getBookingList = async (req, res, next) => {
         next(err);
     }
 }
-// GET
+
+// GET ALL BOOKING LIST
 export const getAllBooking = async (req, res, next) => {
 
     try {
