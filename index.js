@@ -27,7 +27,7 @@ const connect = async () => {
 }
 
 // middleware
-app.use(cors({ credentials: true, origin: 'https://travelnest-client.web.app' }))
+app.use(cors({ credentials: true, origin: ['https://travelnest-client.web.app', 'http://localhost:5173'] }))
 app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoute)
