@@ -11,7 +11,7 @@ router.post("/booking", createBooking);
 router.get("/booking/:id", getSingleBookingList);
 
 // GET
-router.get("/bookingList/:email", getBookingList);
+router.get("/bookingList/:email", verifyUser,  getBookingList);
 
 //GET ALL
 router.get("/bookings", verifyAdmin, getAllBooking);
